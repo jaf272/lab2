@@ -36,6 +36,7 @@ public class TreeFile {
              userInput = inScan.nextLine();
              //TODO: create a new node that has the existing tree as
              //its right child and assign it to the bTree variable
+             bTree = new BinaryNode<>(userInput.charAt(0), null, bTree);
              break;
          case 5:
             FileWriter fileWriter = new FileWriter(readFileName());
@@ -108,6 +109,8 @@ public class TreeFile {
      if(root != null){
        if(root.left == null && root.right == null){ //leaf: write L
          //TODO: write "L root.data" to the file and return
+         file.write("L " + root.data + "\n");
+         return;
        } else { //internal: write I
          file.write("I " + root.data + "\n");
        }
