@@ -90,7 +90,11 @@ public class TreeFile {
        if(line.charAt(0) == 'I'){ //internal node
          /*TODO: replace null below with a new node and recursively call
           readTree on its left and right children */
-         result = null;
+         
+          result = new BinaryNode<>(line.charAt(2));
+          result.left = readTree(file);
+          result.right = readTree(file);
+
        } else if(line.charAt(0) == 'L'){ //leaf node
          result = new BinaryNode<>(line.charAt(2));
        } else { //NULL child
